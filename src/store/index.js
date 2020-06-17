@@ -54,7 +54,9 @@ const mutations = {
   },
   adjustWeights(state, payload) {
     state.ingredients.forEach((item) => {
-      item.value = helpers.round(item.value * (payload.newWeight / payload.oldWeight), 1)
+      if (payload.oldWeight != 0) {
+        item.value = helpers.round(item.value * (payload.newWeight / payload.oldWeight), 1)
+      }
     })
   },
   moveUp(state, payload) {
