@@ -6,9 +6,11 @@ A bread dough calculator made with vue.js vuex and tailwind.
 
 * Real time updates of ingredients, percentages, bakers percentages, totals and hydration.
 * Target weight recalculation
-* Unlimited amounts of any ingredients
-* Re-organization of ingredient list
+* Add unlimited amounts of any ingredient
+* Re-organization of ingredient list items
 * URL generation
+
+Demo: https://abstracteverything.github.io/dough-calc/#/
 
 ## Project setup
 ```
