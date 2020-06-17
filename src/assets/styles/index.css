@@ -1,0 +1,60 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+/* Forms */
+
+.form-label {
+  @apply block mb-2 font-bold;
+}
+
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+
+.btn:focus {
+  @apply outline-none;
+}
+
+.btn-orange {
+  @apply bg-orange-400 text-white;
+}
+
+.btn-orange:hover {
+  @apply bg-orange-500;
+}
+
+.form-input {
+  @apply py-2 px-4 w-full;
+}
+
+.form-input:focus {
+  @apply py-2 px-0 bg-transparent border-dashed outline-none;
+}
+
+.form-input-header {
+  @apply bg-white border-0 border-orange-300;
+}
+
+.form-input-default {
+  @apply bg-gray-100 border-b-2 border-gray-300;
+}
+
+.form-input-orange {
+  @apply bg-orange-200 border-b-2 border-orange-300;
+}
+
+.form-input-copy {
+  @apply rounded-full border-dashed border text-gray-500;
+}
+
+.form-input-copy:focus {
+  @apply px-4 bg-white;
+}
+
+.form-input-copy:hover {
+  @apply cursor-pointer
+}
+
+@tailwind utilities;
