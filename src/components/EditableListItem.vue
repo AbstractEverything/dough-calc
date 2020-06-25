@@ -42,6 +42,7 @@
               <option value="dry">Dry</option>
               <option value="liquid">Liquid</option>
               <option value="starter">Starter</option>
+              <option value="salt">Salt</option>
               <option value="other">Other</option>
             </select>
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
