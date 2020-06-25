@@ -33,13 +33,13 @@ const actions = {
   },
 }
 
-const mutations = {
+export const mutations = {
   updateTitle(state, title) {
     state.title = title
   },
   addIngredient(state, payload) {
     state.ingredients.unshift({
-      id: helpers.randomInt(),
+      id: payload.id,
       name: payload.name,
       value: payload.value,
       type: payload.type,

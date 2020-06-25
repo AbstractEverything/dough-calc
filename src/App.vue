@@ -14,6 +14,7 @@
 import MainHeader from './components/MainHeader.vue'
 import MainSidebar from './components/MainSidebar.vue'
 import EditableList from './components/EditableList.vue'
+import helpers from './helpers'
 
 export default {
   name: 'App',
@@ -36,6 +37,7 @@ export default {
         const reversed = this.reversedQuery()
         reversed.name.forEach((item, index) => {
           this.$store.dispatch('addIngredient', {
+            id: helpers.randomInt(),
             name: item,
             value: parseFloat(reversed.value[index]),
             type: reversed.type[index],
@@ -44,6 +46,7 @@ export default {
         })
       } else {
         this.$store.dispatch('addIngredient', {
+          id: helpers.randomInt(),
           name: this.$route.query.name,
           value: parseFloat(this.$route.query.value),
           type: this.$route.query.type,
