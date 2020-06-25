@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="bg-orange-100 font-body min-h-screen overflow-hidden">
-    <div class="container mx-auto mt-8 mb-8">
-      <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mr-4 ml-4 lg:mr-8 lg:ml-8">
+    <div class="container mx-auto mt-4 mb-4 lg:mt-8 lg:mb-8">
+      <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mr-4 ml-4 lg:gap-8 lg:mr-8 lg:ml-8">
         <main-header/>
         <editable-list/>
         <main-sidebar/>
