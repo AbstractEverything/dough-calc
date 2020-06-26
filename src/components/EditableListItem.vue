@@ -74,9 +74,9 @@ export default {
       newIngredient: {
         id: this.ingredient.id,
         name: this.ingredient.name,
-        value: this.ingredient.value || 0,
+        value: this.ingredient.value,
         type: this.ingredient.type,
-        hydration: this.ingredient.hydration || 0
+        hydration: this.ingredient.hydration,
       },
     }
   },

@@ -100,7 +100,7 @@ export const getters = {
       return state.ingredients.filter((item) => {
         return item.type == type
       }).reduce((total, item) => {
-        return total += item.value
+        return total += parseFloat(item.value) || 0
       }, 0)
     }
   },
@@ -123,7 +123,7 @@ export const getters = {
     }, 0)
   },
   totalOverallDry(state, getters) {
-    return getters.totalStarterDry + getters.totalOfType('dry')
+    return helpers.round(getters.totalStarterDry, 1) + helpers.round(getters.totalOfType('dry'), 1)
   },
   stateToQuery(state) {
     const result = state.ingredients.reduce((url, item) => {
