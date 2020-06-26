@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="bg-orange-100 font-body min-h-screen overflow-hidden">
-    <div class="container mx-auto mt-8 mb-8">
-      <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mr-4 ml-4 lg:mr-8 lg:ml-8">
+    <div class="container mx-auto mt-4 mb-4 lg:mt-8 lg:mb-8">
+      <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-4 mr-4 ml-4 lg:gap-8 lg:mr-8 lg:ml-8">
         <main-header/>
         <editable-list/>
         <main-sidebar/>
@@ -14,6 +14,7 @@
 import MainHeader from './components/MainHeader.vue'
 import MainSidebar from './components/MainSidebar.vue'
 import EditableList from './components/EditableList.vue'
+import helpers from './helpers'
 
 export default {
   name: 'App',
@@ -36,6 +37,7 @@ export default {
         const reversed = this.reversedQuery()
         reversed.name.forEach((item, index) => {
           this.$store.dispatch('addIngredient', {
+            id: helpers.randomInt(),
             name: item,
             value: parseFloat(reversed.value[index]),
             type: reversed.type[index],
@@ -44,6 +46,7 @@ export default {
         })
       } else {
         this.$store.dispatch('addIngredient', {
+          id: helpers.randomInt(),
           name: this.$route.query.name,
           value: parseFloat(this.$route.query.value),
           type: this.$route.query.type,

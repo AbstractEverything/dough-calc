@@ -1,5 +1,5 @@
-import Vue from "vue"
-import Vuex from "vuex"
+import Vue from 'vue'
+import Vuex from 'vuex'
 import helpers from '../helpers'
 
 Vue.use(Vuex);
@@ -33,13 +33,13 @@ const actions = {
   },
 }
 
-const mutations = {
+export const mutations = {
   updateTitle(state, title) {
     state.title = title
   },
   addIngredient(state, payload) {
     state.ingredients.unshift({
-      id: helpers.randomInt(),
+      id: payload.id,
       name: payload.name,
       value: payload.value,
       type: payload.type,
@@ -61,23 +61,21 @@ const mutations = {
   },
   moveUp(state, payload) {
     const currentIndex = state.ingredients.indexOf(payload)
-    const current = state.ingredients[currentIndex]
     if (currentIndex >= 1) {
       const above = state.ingredients[currentIndex - 1]
-      state.ingredients.splice(state.ingredients.indexOf(payload) - 1, 2, current, above)
+      state.ingredients.splice(state.ingredients.indexOf(payload) - 1, 2, payload, above)
     }
   },
   moveDown(state, payload) {
     const currentIndex = state.ingredients.indexOf(payload)
-    const current = state.ingredients[currentIndex]
     if (currentIndex <= state.ingredients.length - 2) {
       const below = state.ingredients[currentIndex + 1]
-      state.ingredients.splice(state.ingredients.indexOf(payload), 2, below, current)
+      state.ingredients.splice(currentIndex, 2, below, payload)
     }
   }
 }
 
-const getters = {
+export const getters = {
   totalWeight(state) {
     return state.ingredients.reduce((total, item) => {
       return helpers.round(total += item.value, 1)
@@ -124,6 +122,9 @@ const getters = {
       return total += item.value - (item.value / ((item.hydration / 100) + 1))
     }, 0)
   },
+  totalOverallDry(state, getters) {
+    return getters.totalStarterDry + getters.totalOfType('dry')
+  },
   stateToQuery(state) {
     const result = state.ingredients.reduce((url, item) => {
       return url+= 'name=' + item.name + '&'
@@ -131,7 +132,7 @@ const getters = {
         + 'type=' + item.type + '&'
         + 'hydration=' + item.hydration + '&'
     }, '')
-    return result + '&title=' + encodeURIComponent(state.title)
+    return result + 'title=' + encodeURIComponent(state.title)
   }
 }
 
